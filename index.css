@@ -953,3 +953,94 @@ header{
   }
 
 }
+
+/* =====================================================
+   ÍCONE PROFISSIONAL - CARDÍACO
+===================================================== */
+
+.assessment-icon{
+  width:82px;
+  height:82px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:20px;
+
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    0 0 20px rgba(255,70,70,0.08);
+
+  transition:0.3s ease;
+}
+
+/* =====================================================
+   ÍCONE PERSONALIZADO - DIABETES
+===================================================== */
+
+.diabetes-icon{
+  width:90px;
+  height:90px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:20px;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.05),
+      rgba(255,255,255,0.02)
+    );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.30),
+    0 0 25px rgba(0,140,255,0.12);
+
+  transition:0.3s ease;
+}
+
+.diabetes-icon{
+  width:85px;
+  height:85px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:24px;
+
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
+}
+
+.diabetes-icon img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+}
