@@ -228,6 +228,7 @@ function finish() {
       </div>
     `;
   }
+  MedicalVoiceAssistant.criarBotao();
 }
 
 // =====================================================
@@ -255,3 +256,158 @@ if (btnColesterol) {
 // Inicialização da tela padrão
 showScreen('home');
 
+//narração 
+let narracaoAtiva = false;
+
+const MedicalVoiceAssistant = {
+  falar(texto) {
+    if (!window.speechSynthesis) {
+      alert("Seu navegador não suporta leitura por voz.");
+      return;
+    }
+
+    speechSynthesis.cancel();
+
+    const fala = new SpeechSynthesisUtterance(texto);
+    fala.rate = 1.08;
+    fala.pitch = 1.0;
+    fala.volume = 1;
+
+    const vozes = speechSynthesis.getVoices();
+    const voz =
+      vozes.find(v => v.name.includes("Microsoft Antonio")) ||
+      vozes.find(v => v.name.includes("Antonio")) ||
+      vozes.find(v => v.name.includes("Daniel")) ||
+      vozes.find(v => v.name.includes("Google português do Brasil")) ||
+      vozes.find(v => v.lang === "pt-BR") ||
+      vozes[0];
+
+    if (voz) fala.voice = voz;
+
+    fala.text = fala.text
+      .replace(/\./g, ". ")
+      .replace(/,/g, ", ")
+      .replace(/:/g, ": ")
+      .replace(/\s+/g, " ");
+
+    fala.onend = () => {
+      narracaoAtiva = false;
+      const btn = document.getElementById("btnNarrarLaudo");
+      if (btn) {
+        btn.classList.remove("voice-active");
+        
+        // Definição do ícone para reinserção no término natural da fala
+        const iconePlay = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>`;
+        btn.innerHTML = `${iconePlay} <span>Ouvir Laudo</span>`;
+      }
+    };
+
+    speechSynthesis.speak(fala);
+  },
+
+  narrarLaudo() {
+    let texto = `Resultado da avaliação de ${curType}.`;
+
+    if (curScore >= 30) {
+      texto += `
+      A classificação encontrada foi risco elevado.
+      Recomenda-se procurar atendimento médico especializado.
+      `;
+    } else if (curScore >= 15) {
+      texto += `
+      A classificação encontrada foi atenção.
+      Recomenda-se acompanhamento profissional.
+      `;
+    } else {
+      texto += `
+      A classificação encontrada foi baixo risco.
+      `;
+    }
+
+    const relatorio = document.querySelector(".clinical-report");
+
+    if (relatorio) {
+      const secoes = relatorio.querySelectorAll(".report-section, .conduta-box");
+
+      secoes.forEach(secao => {
+        texto += " ";
+
+        const titulo = secao.querySelector("h4");
+        if (titulo) {
+          texto += titulo.innerText + ". ";
+        }
+
+        const paragrafos = secao.querySelectorAll("p");
+        paragrafos.forEach(p => {
+          texto += p.innerText + ". ";
+        });
+
+        const spans = secao.querySelectorAll(".report-item span");
+        spans.forEach(span => {
+          texto += span.innerText + ". ";
+        });
+      });
+    }
+
+    texto += `Este resultado possui finalidade educativa e não substitui consulta médica.`;
+
+    this.falar(texto);
+  },
+
+  criarBotao() {
+    const extra = document.getElementById("professionalExtraContent");
+    if (!extra) return;
+    if (document.getElementById("btnNarrarLaudo")) return;
+
+    // Definição dos templates de ícones SVG estilizados
+    const iconePlay = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </svg>`;
+
+    const iconeStop = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+      </svg>`;
+
+    const btn = document.createElement("button");
+    btn.id = "btnNarrarLaudo";
+    btn.className = "primary-btn";
+    
+    // Injeta o SVG + Texto inicial
+    btn.innerHTML = `${iconePlay} <span>Ouvir Laudo</span>`;
+    
+    btn.style.margin = "24px 0";
+    btn.style.width = "100%";
+
+    btn.onclick = () => {
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+        narracaoAtiva = false;
+        btn.classList.remove("voice-active");
+        btn.innerHTML = `${iconePlay} <span>Ouvir Laudo</span>`;
+        return;
+      }
+
+      narracaoAtiva = true;
+      btn.classList.add("voice-active");
+      btn.innerHTML = `${iconeStop} <span>Parar Narração</span>`;
+      MedicalVoiceAssistant.narrarLaudo();
+    };
+
+    extra.appendChild(btn);
+  }
+};
+
+function encerrarSistema() {
+  speechSynthesis.cancel();
+  narracaoAtiva = false;
+  location.reload();
+}

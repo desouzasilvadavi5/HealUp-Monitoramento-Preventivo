@@ -2211,3 +2211,125 @@ h3.titulo-dinamico {
     transform: translateY(0);
   }
 }
+
+/* ==========================================
+   BOTÃO OUVIR LAUDO - LIQUID GLASS PREMIUM
+========================================== */
+
+#btnNarrarLaudo {
+
+    position: relative;
+
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px 24px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #ffffff;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -1px 0 rgba(255,255,255,.05);
+}
+
+/* ==========================================
+   BOTÃO NARRAR LAUDO - ESTILO PRINCIPAL
+   ========================================== */
+#btnNarrarLaudo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+    
+    /* Espaçamento externo para destacar e afastar de outros elementos */
+    margin: 24px 0; 
+    
+    /* Animação pulsante suave contínua */
+    animation: voiceGlow 4s infinite ease-in-out;
+}
+
+/* Brilho interno (efeito raio de luz passando) */
+#btnNarrarLaudo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    transition: 0.8s;
+}
+
+/* ==========================================
+   ESTADOS DE INTERAÇÃO (HOVER, ACTIVE)
+   ========================================== */
+
+/* Efeito hover (passar o mouse) */
+#btnNarrarLaudo:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 12px 40px rgba(0, 255, 127, 0.18),
+        0 0 25px rgba(0, 255, 127, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Disparo do brilho interno no hover */
+#btnNarrarLaudo:hover::before {
+    left: 150%;
+}
+
+/* Efeito clique */
+#btnNarrarLaudo:active {
+    transform: scale(0.97);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25),
+        inset 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   ELEMENTOS EXTRAS E ANIMAÇÕES
+   ========================================== */
+
+/* Animação de pulso */
+@keyframes voiceGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(0, 255, 127, 0);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 255, 127, 0.18);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(0, 255, 127, 0);
+    }
+}
