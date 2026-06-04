@@ -1,0 +1,79 @@
+/* =====================================================
+   ELEMENTOS VISUAIS DE DETALHE - VIDRO LÍQUIDO (PURE BLUE)
+===================================================== */
+.bg-blur {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(110px); 
+  z-index: -2;
+  pointer-events: none;
+  will-change: transform, border-radius; /* Fluidez máxima a 60fps */
+}
+
+.bg1 {
+  width: 750px !important;
+  height: 750px !important;
+  /* Transição suave do Azul Noturno para o Azul Cobalto Vibrante */
+  background: radial-gradient(circle at 30% 30%, #0284c7, #0f172a 85%) !important;
+  opacity: 0.25 !important; 
+  animation: liquidBlueDrop 24s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate !important;
+}
+
+.bg2 {
+  width: 850px !important;
+  height: 850px !important;
+  /* Transição suave do Azul Marinho Profundo para o Azul Celeste Claro */
+  background: radial-gradient(circle at 70% 70%, #0369a1, #020617 80%) !important;
+  opacity: 0.20 !important; 
+  /* Movimento cruzado dessincronizado para criar ondas orgânicas */
+  animation: liquidBlueDrop 32s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate-reverse !important;
+}
+
+@keyframes liquidBlueDrop {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    /* Inicia no azul-cobalto original da propriedade background */
+    filter: blur(100px) brightness(0.9) contrast(1);
+  }
+  25% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    transform: translate(140px, -100px) rotate(90deg) scale(1.15);
+    /* Caminha para um tom de azul levemente mais claro e nítido */
+    filter: blur(115px) brightness(1.2) contrast(1.1); 
+  }
+  50% {
+    border-radius: 30% 70% 40% 60% / 50% 65% 35% 50%;
+    transform: translate(-100px, 140px) rotate(180deg) scale(0.85);
+    /* Mergulha em um tom de azul escuro abissal e misterioso */
+    filter: blur(95px) brightness(0.6) contrast(0.95); 
+  }
+  75% {
+    border-radius: 55% 45% 65% 35% / 40% 55% 45% 60%;
+    transform: translate(100px, 90px) rotate(270deg) scale(1.25);
+    /* Retorna para um tom médio/claro com brilho de vidro exposto à luz */
+    filter: blur(125px) brightness(1.1) contrast(1.05); 
+  }
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(0, 0) rotate(360deg) scale(1);
+    filter: blur(100px) brightness(0.9) contrast(1);
+  }
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  /* Grid digital sutil azulado para combinar perfeitamente com a atmosfera */
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.012) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -3;
+  animation: gridBreathe 16s ease-in-out infinite alternate;
+}
+
+@keyframes gridBreathe {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.5; background-size: 54px 54px; }
+}
