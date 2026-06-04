@@ -1,0 +1,382 @@
+/* =====================================================
+   SISTEMA DE VARIÁVEIS UNIFICADO (MODO ESCURO PADRÃO)
+===================================================== */
+:root {
+  /* Fundo Geral, Header e Grid */
+  --site-bg: #030712; 
+  --header-bg: rgba(3, 7, 18, 0.45); 
+  --grid-color: rgba(14, 165, 233, 0.012);
+
+  /* Cores dos Textos Gerais */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+
+  /* Efeito Liquid Glass Premium (Dark) */
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --glass-specular: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.0) 100%);
+  --glass-glow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --input-bg: rgba(255, 255, 255, 0.02);
+  --input-border: rgba(255, 255, 255, 0.08);
+
+  /* Elementos específicos de Laudos e Tabelas (Dark) */
+  --table-header-bg: rgba(255, 255, 255, 0.05);
+  --table-row-hover: rgba(255, 255, 255, 0.02);
+  --badge-bg: rgba(2, 132, 199, 0.2);
+
+  /* Botão Primário (Iniciar / Gerar) */
+  --btn-primary-bg: #0284c7;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #0369a1;
+
+  /* Botão Secundário / Voltar / Cards */
+  --btn-sec-bg: rgba(255, 255, 255, 0.03);
+  --btn-sec-text: rgba(245, 245, 245, 0.9);
+  --btn-sec-border: rgba(255, 255, 255, 0.08);
+  --btn-sec-hover: rgba(255, 255, 255, 0.08);
+
+  /* Vidro Líquido Orgânico */
+  --bg1-color-1: #0284c7;
+  --bg1-color-2: #0f172a;
+  --bg2-color-1: #0369a1;
+  --bg2-color-2: #020617;
+}
+
+/* =====================================================
+   MUTAÇÃO VISUAL INTERATIVA (MODO CLARO AZUL CELESTE)
+===================================================== */
+:root.light-mode {
+  /* Fundo Geral e Header - Paleta Azul Celeste Pura */
+  --site-bg: #6de9ff;                       
+  --header-bg: rgba(109, 233, 255, 0.4);   
+  --grid-color: rgba(69, 173, 230, 0.15);
+
+  /* Textos Invertidos para Contraste Extremo */
+  --text-primary: #03045e;       
+  --text-secondary: #023e8a;     
+  --text-muted: #0077b6;         
+
+  /* Efeito Liquid Glass Premium (Celeste Apple Style) */
+  --card-bg: rgba(255, 255, 255, 0.28);    
+  --glass-specular: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(3, 4, 94, 0.04) 100%);
+  --glass-glow: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 12px 40px -10px rgba(3, 4, 94, 0.15);
+  --input-bg: rgba(255, 255, 255, 0.4);     
+  --input-border: rgba(0, 150, 199, 0.25);
+
+  /* Elementos específicos de Laudos e Tabelas (Celeste) */
+  --table-header-bg: rgba(0, 119, 182, 0.15);
+  --table-row-hover: rgba(255, 255, 255, 0.2);
+  --badge-bg: rgba(0, 119, 182, 0.25);
+
+  /* Botões Primários Estilizados */
+  --btn-primary-bg: #0077b6;     
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #03045e;
+
+  /* Botões Secundários de Alto Contraste Celeste */
+  --btn-sec-bg: rgba(255, 255, 255, 0.3);
+  --btn-sec-text: #03045e;       
+  --btn-sec-border: rgba(0, 150, 199, 0.3);
+  --btn-sec-hover: rgba(255, 255, 255, 0.5);
+
+  /* Orbes Orgânicas Fluidas de Fundo */
+  --bg1-color-1: #00b4d8;        
+  --bg1-color-2: #48cae4;
+  --bg2-color-1: #0077b6;        
+  --bg2-color-2: #90e0ef;
+}
+
+/* =====================================================
+   ESTILIZAÇÃO E ADAPTAÇÃO DO CABEÇALHO (HEADER)
+===================================================== */
+.site-header, .main-header, header {
+  background: var(--header-bg) !important;
+  border: none !important;
+  border-bottom: 1px solid transparent !important;
+  border-image: var(--glass-specular) 1 !important;
+  box-shadow: var(--glass-glow);
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* =====================================================
+   REGRAS DE INVERSÃO CRÍTICA E ABSOLUTA DE TEXTO
+===================================================== */
+body {
+  background-color: var(--site-bg);
+  color: var(--text-primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  margin: 0;
+  padding: 0;
+}
+
+p, label, span, h1, h2, h3, h4, h5, h6, select, input, li, th, td {
+  transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Forçagem Atômica Geral */
+:root.light-mode body,
+:root.light-mode *,
+:root.light-mode p,
+:root.light-mode span,
+:root.light-mode label,
+:root.light-mode h1,
+:root.light-mode h2,
+:root.light-mode h3,
+:root.light-mode h4,
+:root.light-mode h5,
+:root.light-mode h6,
+:root.light-mode li,
+:root.light-mode option,
+:root.light-mode input,
+:root.light-mode select,
+:root.light-mode th,
+:root.light-mode td {
+  color: var(--text-primary) !important;
+}
+
+/* Suavização secundária para elementos de apoio e subtítulos */
+:root.light-mode p,
+:root.light-mode label,
+:root.light-mode .mode-subtitle,
+:root.light-mode .assessment-subtitle,
+:root.light-mode .text-muted,
+:root.light-mode .mode-list li,
+:root.light-mode .laudo-meta-text {
+  color: var(--text-secondary) !important;
+}
+
+/* =====================================================
+   ELEMENTOS VISUAIS E EFEITO LIQUID GLASS ULTRA PREMIUM
+===================================================== */
+.step-card, .mode-card, .assessment-card, .question-box, .form-block, .result-box,
+.laudo-container, .assessment-report, .report-screen, .laudo-box, .panel-glass {
+  background: var(--card-bg) !important;
+  box-shadow: var(--glass-glow) !important;
+  
+  /* Gradiente de reflexão de bordas da Apple */
+  border: 1px solid transparent !important;
+  background-clip: padding-box, border-box !important;
+  background-image: linear-gradient(var(--card-bg), var(--card-bg)), var(--glass-specular) !important;
+  
+  /* Renderização de Desfoque Avançada */
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-radius: 24px; 
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+/* Efeito Hover nos Cards de Interação */
+.step-card:hover, .mode-card:hover, .assessment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.4), 0 20px 48px -10px rgba(0, 0, 0, 0.2) !important;
+}
+
+input[type="number"], input[type="text"], select, .glass-selector-container {
+  background: var(--input-bg) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(var(--input-bg), var(--input-bg)), var(--glass-specular) !important;
+  background-clip: padding-box, border-box !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05) !important;
+  color: var(--text-primary) !important;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+:root.light-mode select option {
+  background-color: #90e0ef !important; 
+}
+
+/* =====================================================
+   ARQUITETURA DE TELAS DE LAUDOS E AVALIAÇÕES (MUTAÇÃO)
+===================================================== */
+.laudo-table, .report-table, table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent !important;
+}
+
+.laudo-table th, .report-table th, th {
+  background-color: var(--table-header-bg) !important;
+  border-bottom: 1px solid transparent !important;
+  border-image: var(--glass-specular) 1 !important;
+  font-weight: 600;
+}
+
+.laudo-table td, .report-table td, td {
+  border-bottom: 1px solid var(--input-border) !important;
+  background: transparent !important;
+}
+
+.laudo-table tr:hover, .report-table tr:hover, tr:hover {
+  background-color: var(--table-row-hover) !important;
+}
+
+/* Badges de Status do Laudo (Ex: Aprovado, Pendente, Crítico) */
+.laudo-badge, .status-pill, .badge {
+  background-color: var(--badge-bg) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(var(--badge-bg), var(--badge-bg)), var(--glass-specular) !important;
+  background-clip: padding-box, border-box !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Seções Internas e Divisores de Laudos */
+.laudo-section, .report-section, .divider-line {
+  border-color: var(--input-border) !important;
+}
+
+/* =====================================================
+   AÇÃO INTEGRAL DOS BOTÕES DO APLICATIVO
+===================================================== */
+
+/* 1. Primários */
+.primary-btn, .generate-btn, .print-btn, .download-laudo-btn {
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.primary-btn:hover, .generate-btn:hover, .print-btn:hover, .download-laudo-btn:hover {
+  background-color: var(--btn-primary-hover) !important;
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.45);
+  transform: translateY(-1px);
+}
+:root.light-mode .primary-btn, 
+:root.light-mode .generate-btn,
+:root.light-mode .print-btn,
+:root.light-mode .download-laudo-btn {
+  color: #ffffff !important; 
+}
+
+/* 2. Secundários, Voltar e Seleções de Cards */
+.secondary-btn, .back-btn, .mode-btn, .assessment-btn, .glass-label-btn {
+  background: var(--btn-sec-bg) !important;
+  color: var(--btn-sec-text) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(var(--btn-sec-bg), var(--btn-sec-bg)), var(--glass-specular) !important;
+  background-clip: padding-box, border-box !important;
+  border-radius: 14px;
+  box-shadow: var(--glass-glow);
+}
+.secondary-btn:hover, .back-btn:hover, .mode-btn:hover, .assessment-btn:hover {
+  background: var(--btn-sec-hover) !important;
+  border-color: var(--text-primary) !important;
+}
+
+:root.light-mode .secondary-btn,
+:root.light-mode .back-btn,
+:root.light-mode .mode-btn,
+:root.light-mode .assessment-btn,
+:root.light-mode .glass-label-btn {
+  color: var(--btn-sec-text) !important;
+}
+
+/* =====================================================
+   ENGENHARIA DO BOTÃO DO SOL (THEME TOGGLE)
+===================================================== */
+.theme-toggle-btn {
+  background: var(--btn-sec-bg);
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(var(--btn-sec-bg), var(--btn-sec-bg)), var(--glass-specular) !important;
+  background-clip: padding-box, border-box !important;
+  box-shadow: var(--glass-glow);
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(245, 245, 245, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  margin-left: 10px;
+}
+
+.theme-toggle-btn:hover {
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38bdf8;
+  transform: scale(1.05) rotate(15deg);
+}
+
+.theme-toggle-btn .theme-icon,
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root.light-mode .theme-toggle-btn {
+  color: #03045e !important; 
+}
+
+:root.light-mode .theme-toggle-btn:hover {
+  transform: scale(1.05) rotate(195deg);
+}
+
+/* =====================================================
+   ANIMAÇÃO DOS BACKGROUNDS (CENÁRIO COMPLETO AZUL CELESTE)
+===================================================== */
+.bg-blur {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px); 
+  z-index: -2;
+  pointer-events: none;
+  will-change: transform, border-radius;
+  transition: filter 0.5s ease;
+}
+
+.bg1 {
+  width: 750px !important;
+  height: 750px !important;
+  background: radial-gradient(circle at 30% 30%, var(--bg1-color-1), var(--bg1-color-2) 85%) !important;
+  opacity: 0.25 !important; 
+  animation: liquidBlueDrop 24s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate !important;
+}
+
+.bg2 {
+  width: 850px !important;
+  height: 850px !important;
+  background: radial-gradient(circle at 70% 70%, var(--bg2-color-1), var(--bg2-color-2) 80%) !important;
+  opacity: 0.20 !important; 
+  animation: liquidBlueDrop 32s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate-reverse !important;
+}
+
+:root.light-mode .bg1, :root.light-mode .bg2 {
+  opacity: 0.6 !important; 
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -3;
+  animation: gridBreathe 16s ease-in-out infinite alternate;
+}
+
+@keyframes liquidBlueDrop {
+  0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: translate(0, 0) rotate(0deg) scale(1); filter: blur(110px) brightness(0.9) contrast(1); }
+  25% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; transform: translate(140px, -100px) rotate(90deg) scale(1.15); filter: blur(125px) brightness(1.2) contrast(1.1); }
+  50% { border-radius: 30% 70% 40% 60% / 50% 65% 35% 50%; transform: translate(-100px, 140px) rotate(180deg) scale(0.85); filter: blur(105px) brightness(0.6) contrast(0.95); }
+  75% { border-radius: 55% 45% 65% 35% / 40% 55% 45% 60%; transform: translate(100px, 90px) rotate(270deg) scale(1.25); filter: blur(135px) brightness(1.1) contrast(1.05); }
+  100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: translate(0, 0) rotate(360deg) scale(1); filter: blur(110px) brightness(0.9) contrast(1); }
+}
+
+@keyframes gridBreathe {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.5; background-size: 54px 54px; }
+}
