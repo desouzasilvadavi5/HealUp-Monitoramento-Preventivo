@@ -1,0 +1,265 @@
+/* =====================================================
+   MEDIA QUERIES (RESPONSIVIDADE COMPLETA E COMPATIBILIDADE)
+===================================================== */
+
+/* LAPTOPS / TABLETS GRANDES (Até 1024px) */
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 60px 5%;
+    gap: 40px;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(2.3rem, 5vw, 3.5rem);
+  }
+
+  .mode-grid,
+  .assessment-grid,
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    padding: 18px 5%;
+  }
+}
+
+/* TABLETS MEDIOS / DISPOSITIVOS MOVEIS (Até 900px) */
+@media (max-width: 900px) {
+  .assessment-header h2,
+  .professional-header h2 {
+    font-size: 38px;
+  }
+}
+
+/* CELULARES PADRÃO (Até 768px) */
+@media (max-width: 768px) {
+  /* Alívio de hardware gráfico para aparelhos celulares */
+  .bg1, .bg2 {
+    width: 350px !important;
+    height: 350px !important;
+    animation: ultraLiquid 25s linear infinite !important;
+  }
+  
+  .dashboard-card, .step-card, .mode-card, .assessment-card, .form-block {
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+  }
+
+  .dashboard-card:hover, .step-card:hover, .mode-card:hover, .assessment-card:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+  }
+
+  header {
+    padding: 18px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .nav-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 50px;
+  }
+
+  .main-header {
+    padding: 18px 18px;
+    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-nav .nav-btn {
+    width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .hero-container {
+    padding: 40px 20px 80px;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    min-height: auto;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    line-height: 1.15;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 56px;
+  }
+
+  .mode-grid,
+  .assessment-grid,
+  .steps-container,
+  .input-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .question-box h2 {
+    font-size: clamp(1.3rem, 6vw, 1.8rem) !important;
+    line-height: 1.25;
+  }
+
+  .home-container,
+  .hero-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .logo-container {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .logo-icon {
+    width: 82px;
+    height: 82px;
+  }
+
+  .logo-title {
+    font-size: clamp(2.4rem, 6vw, 3rem);
+    line-height: 1;
+  }
+
+  .logo-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+  }
+
+  .tagline {
+    padding: 14px 22px;
+    margin-bottom: 42px;
+    font-size: 0.95rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 7vw, 4rem);
+    line-height: 1.08;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin-bottom: 36px;
+    max-width: 100%;
+  }
+
+  .hero-actions,
+  .button-group {
+    gap: 14px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    min-height: 62px;
+    padding: 16px 24px;
+    font-size: 1.05rem;
+    border-radius: 20px;
+  }
+}
+
+/* AJUSTE ADICIONAL DE FORMULÁRIOS */
+@media (max-width: 680px) {
+  .professional-screen { padding: 40px 4%; }
+  .form-block { padding: 24px; border-radius: 24px; }
+  .professional-header { margin-bottom: 40px; }
+}
+
+/* CELULARES PEQUENOS (Até 480px) */
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 30px 16px 70px;
+  }
+
+  .hero-left h1 {
+    font-size: 1.9rem !important;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .nav-btn {
+    min-height: 54px;
+    font-size: .95rem;
+  }
+
+  .question-box h2 {
+    font-size: 1.2rem !important;
+  }
+
+  .home-container,
+  .hero-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .logo-container {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .logo-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .logo-title {
+    font-size: 2.2rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+  }
+
+  .tagline {
+    padding: 12px 18px;
+    margin-bottom: 34px;
+    font-size: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+    line-height: 1.05;
+    margin-bottom: 18px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    min-height: 56px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-radius: 18px;
+  }
+
+  .hero-actions,
+  .button-group {
+    gap: 12px;
+  }
+  
+  .report-item { flex-direction: column; align-items: flex-start; }
+}
