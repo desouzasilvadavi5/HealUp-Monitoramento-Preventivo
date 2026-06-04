@@ -1,0 +1,267 @@
+/* =====================================================
+   ESTRUTURA DA BARRA DE TOPO (HEADER), LOGO E NAVEGAÇÃO
+===================================================== */
+@keyframes entradaSuave {
+  from { opacity: 0; transform: translateY(-12px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulsoBrilho {
+  0% { box-shadow: 0 0 20px rgba(0, 255, 170, 0.12), inset 0 0 0px rgba(255,255,255,0); }
+  50% { box-shadow: 0 0 35px rgba(0, 255, 170, 0.25), inset 0 0 8px rgba(0, 255, 170, 0.1); }
+  100% { box-shadow: 0 0 20px rgba(0, 255, 170, 0.12), inset 0 0 0px rgba(255,255,255,0); }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.main-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 45px;
+  position: relative;
+  z-index: 10;
+  border-radius: 24px; 
+  background: linear-gradient(135deg, rgba(15, 15, 20, 0.75), rgba(10, 10, 12, 0.45));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: entradaSuave 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* =====================================================
+   MÓDULO DA LOGO QUADRADA PREMIUM (PURE BLUE VETORIAL)
+===================================================== */
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0; /* Impede o navegador de achatar a logo no celular */
+}
+
+.logo-area:hover { 
+  transform: scale(1.02); 
+}
+
+/* Moldura Externa (Quadrado Perfeito Squircle) */
+.logo-mark {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px; 
+  /* Gradiente translúcido em tons de azul e safira */
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(37, 99, 235, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: pulsoBrilho 4s infinite ease-in-out;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Quadrado Interno Otimizado */
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #0284c7, #1d4ed8);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  position: relative; /* Base de ancoragem para os vetores da cruz */
+  box-sizing: border-box;
+}
+
+/* ENGENHARIA DA CRUZ COM VETORES (Acaba com o bug do texto desalinhado) */
+.logo-icon::before,
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #38bdf8; /* Azul Celeste Puro */
+  border-radius: 2px;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+  
+  /* Trava o cruzamento exatamente no pixel central do quadrado */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.logo-icon::before { width: 16px; height: 3.5px; } /* Linha Horizontal */
+.logo-icon::after { width: 3.5px; height: 16px; }  /* Linha Vertical */
+
+/* Efeitos de Interação ao Passar o Mouse (Hover) */
+.logo-area:hover .logo-mark {
+  transform: rotate(5deg) scale(1.03);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.2);
+}
+
+.logo-area:hover .logo-icon::before,
+.logo-area:hover .logo-icon::after {
+  background-color: #ffffff; /* A cruz brilha em branco puro no hover */
+  filter: drop-shadow(0 0 8px #38bdf8);
+}
+
+/* Tipografia Central da Marca */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-text h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.logo-area:hover .logo-text h2 { 
+  color: #38bdf8; /* Texto acende em azul combinando com a gota d'água */
+}
+
+.logo-text span {
+  margin: 2px 0 0 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(14, 165, 233, 0.5);
+  line-height: 1;
+}
+
+/* =====================================================
+   COMPACTAÇÃO RESPONSIVA PARA CELULARES
+===================================================== */
+@media (max-width: 768px) {
+  .logo-area {
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 12px;
+  }
+
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 8px;
+  }
+
+  /* Reduz o vetor da cruz milimetricamente no celular mantendo a proporção */
+  .logo-icon::before { width: 12px; height: 3px; }
+  .logo-icon::after { width: 3px; height: 12px; }
+
+  .logo-text h2 {
+    font-size: 1.15rem;
+  }
+
+  .logo-text span {
+    font-size: 0.58rem;
+    letter-spacing: 1.2px;
+  }
+}
+/* Botões da Barra de Navegação */
+.nav-btn {
+  border: none;
+  padding: 16px 24px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(20px);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.header-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.header-nav .nav-btn {
+  padding: 13px 28px;
+  border-radius: 30px; 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(245, 245, 245, 0.85);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-nav .nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transition: 0.6s ease;
+}
+
+.header-nav .nav-btn:hover::before { left: 100%; }
+
+/* =====================================================
+   CORREÇÃO CIRÚRGICA: TRAVAMENTO GEOMÉTRICO DA LOGO (COLE NO FINAL)
+===================================================== */
+.logo-area {
+  align-items: center !important; /* Impede o alinhamento 'stretch' que estica o bloco */
+}
+
+.logo-mark {
+  aspect-ratio: 1 / 1 !important; /* Proíbe virar retângulo vertical ou horizontal */
+  flex-shrink: 0 !important;      /* Impede o mobile de esmagar as laterais */
+}
+
+.logo-icon {
+  aspect-ratio: 1 / 1 !important; /* Tranca o quadrado interno em 1:1 */
+  flex-shrink: 0 !important;
+}
+
+/* Garante o quadrado perfeito mesmo nas menores telas de celular */
+@media (max-width: 768px) {
+  .logo-mark {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  .logo-icon {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+  }
+}

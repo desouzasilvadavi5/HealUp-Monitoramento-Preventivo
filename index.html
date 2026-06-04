@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="index.css">
 </head>
@@ -20,60 +21,53 @@
   <div class="grid-overlay"></div>
 
   <section class="home-screen" id="homeScreen">
-  <!-- INTERFACE LÍQUIDA: Elementos fora de caixas para criar o fundo infinito de LED -->
-  <div class="bg-blur bg1"></div>
-  <div class="bg-blur bg2"></div>
-  <div class="grid-overlay"></div>
+    <div class="bg-blur bg1"></div>
+    <div class="bg-blur bg2"></div>
+    <div class="grid-overlay"></div>
 
-  <header class="main-header">
-    <div class="logo-area">
-      <!-- O ícone + agora pulsa organicamente através do novo CSS -->
-      <div class="logo-mark">
-        <span class="logo-icon">+</span>
+    <header class="main-header">
+      <div class="logo-area">
+        <div class="logo-mark">
+          <span class="logo-icon"></span>
+        </div>
+
+        <div class="logo-text">
+          <h2>HealUp</h2>
+          <span>Monitoramento Preventivo</span>
+        </div>
       </div>
-
-      <div class="logo-text">
-        <h2>HealUp</h2>
-        <span>Monitoramento Preventivo</span>
-      </div>
-    </div>
-    
-    <nav class="header-nav">
-      <button class="nav-btn" type="button">
-        Saúde • Vida • Prevenção
-      </button>
-    </nav>
-  </header>
-
-  <!-- CONTEÚDO LIVRE: Sem caixas/cards. O texto se molda dinamicamente ao tamanho da tela -->
-  <div class="hero-container">
-    <div class="hero-left">
-      <h1>
-        Avalie possíveis riscos clínicos de forma rápida e organizada.
-      </h1>
-      <p>
-        Ferramenta de triagem desenvolvida para auxiliar no rastreamento inicial de alterações metabólicas, cardiovasculares e fatores de risco relacionados à saúde.
-      </p>
       
-      <!-- No celular, estes botões se empilham perfeitamente para facilitar o toque -->
-      <div class="hero-buttons">
-        <button class="primary-btn" id="btnOpenModes">
-          Iniciar Avaliação
+      <nav class="header-nav">
+        <button class="nav-btn" type="button">
+          Saúde • Vida • Prevenção
         </button>
-        <button class="secondary-btn" id="btnOpenHow">
-          Como Funciona
-        </button>
+      </nav>
+    </header>
+
+    <div class="hero-container">
+      <div class="hero-left">
+        <h2>
+          Avalie possíveis riscos clínicos de forma rápida e organizada.
+        </h2>
+        <p>
+          Ferramenta de triagem desenvolvida para auxiliar no rastreamento inicial de alterações metabólicas, cardiovasculares e fatores de risco relacionados à saúde.
+        </p>
+        
+        <div class="hero-buttons">
+          <button class="primary-btn" id="btnOpenModes">
+            Iniciar Avaliação
+          </button>
+          <button class="secondary-btn" id="btnOpenHow">
+            Como Funciona
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-signature">
+        By: Davi De S. Silva
       </div>
     </div>
-
-    <!-- ASSINATURA INTEGRADA AO DESIGN HUD -->
-    <div class="hero-signature">
-      By: Davi De S. Silva
-    </div>
-  </div>
-</section>
-
-<!-- ÁREA DE COMO FUNCIONA-->
+  </section>
 
   <section class="how-screen" id="howScreen" style="display: none;">
     <button class="back-btn" id="btnBackHomeFromHow">← Voltar</button>
@@ -82,334 +76,353 @@
       <h3>Como Funciona</h3>
     </div>
     <div class="steps-container">
-      <div class="step-card"><div class="step-number">1</div><h3>Escolha Seu Modo</h3><p>Básico para usuários ou Profissional para especialistas da área da saúde.</p></div>
-      <div class="step-card"><div class="step-number">2</div><h3>Responda</h3><p>Informe seus sintomas e hábitos de forma honesta e detalhada.</p></div>
-      <div class="step-card"><div class="step-number">3</div><h3>Análise</h3><p>Receba um indicativo baseado em protocolos de saúde para sua condição.</p></div>
+      <div class="step-card"><div class="step-number">1</div><h2>Escolha Seu Modo</h2><p>Básico para usuários ou Profissional para especialistas da área da saúde.</p></div>
+      <div class="step-card"><div class="step-number">2</div><h2>Responda</h2><p>Informe seus sintomas e hábitos de forma honesta e detalhada.</p></div>
+      <div class="step-card"><div class="step-number">3</div><h2>Análise</h2><p>Receba um indicativo baseado em protocolos de saúde para sua condition.</p></div>
     </div>
   </section>
 
   <section class="mode-screen" id="modeScreen" style="display:none;">
+    <button class="back-btn" id="btnBackHomeFromModes">
+      ← Voltar
+    </button>
 
-   <button class="back-btn" id="btnBackHomeFromModes">
-    ← Voltar
-   </button>
-
-   <div class="mode-header">
-
-    <div class="mini-badge">
-      Escolha o tipo de avaliação
-    </div>
-
-    <h2 class="titulo-dinamico">
-  Como deseja utilizar a plataforma?
-</h2>A
-
-    <p class="mode-subtitle">
-      Selecione a experiência mais adequada para o seu objetivo.
-    </p>
-
-  </div>
-
-  <div class="mode-grid">
-
-    <!-- MODO BÁSICO -->
-
-    <div class="mode-card">
-
-      <h3>
-        Avaliação Básica 
-      </h3>
-
-      <p>
-        Questionário rápido com foco em sintomas, rotina e fatores de risco mais comuns.
-      </p>
-
-      <ul class="mode-list">
-        <li>✓ Perguntas simples e rápidas</li>
-        <li>✓ Indicação preliminar de risco</li>
-        <li>✓ Recomendação de cuidados iniciais</li>
-      </ul>
-
-      <button class="mode-btn" id="btnOpenAssessment">
-        Iniciar Avaliação Básica
-      </button>
-
-    </div>
-
-    <!-- MODO PROFISSIONAL -->
-
-    <div class="mode-card professional">
-
-      <h3>
-        Avaliação Profissional 
-      </h3>
-      <p>
-        Área voltada para análises clínicas com parâmetros laboratoriais e cardiovasculares.
-      </p>
-      <ul class="mode-list">
-        <li>✓ Interpretação de exames bioquímicos</li>
-        <li>✓ Cálculos metabólicos automáticos</li>
-        <li>✓ Relatório clínico mais detalhado</li>
-      </ul>
-      <button class="mode-btn" id="btnOpenProfessional">
-        Acessar Avaliação Profissional
-      </button>
-    </div>
-  </div>
-
-<!--ÁREA DE SELEÇÃO - MODO BÁSICO-->
-
-</section>
-  <section class="assessment-screen" id="assessmentScreen" style="display:none;">
-  <button class="back-btn" id="btnBackModesFromAssessment">
-    ← Voltar
-  </button>
-  <div class="assessment-header">
-    <div class="mini-badge">
-      Triagem de Saúde
-    </div>
-    <h2>
-      Qual avaliação deseja realizar?
-    </h2>
-    <p class="assessment-subtitle">
-      Escolha uma das áreas abaixo para iniciar o rastreamento preventivo.
-    </p>
-  </div>
-  <div class="assessment-grid">
-    <!-- DIABETES -->
-    <div class="assessment-card">
-      <div class="assessment-icon diabetes-icon">
-      <img src="https://cdn-icons-png.freepik.com/512/5935/5935562.png" alt="Diabetes">
+    <div class="mode-header">
+      <div class="mini-badge">
+        Escolha o tipo de avaliação
       </div>
-      <h3>
-        Diabetes
-      </h3>
-      <p>
-        Verificação de sintomas relacionados ao controle da glicose e riscos metabólicos.
+      <h2 class="titulo-dinamico">
+        Como deseja utilizar a plataforma?
+      </h2>
+      <p class="mode-subtitle">
+        Selecione a experiência mais adequada para o seu objetivo.
       </p>
-      <ul class="assessment-list">
-        <li>✓ Sede excessiva</li>
-        <li>✓ Alterações glicêmicas</li>
-        <li>✓ Histórico familiar</li>
-      </ul>
-      <button class="assessment-btn" id="btnStartDiabetes">
-        Iniciar Avaliação
-      </button>
     </div>
 
-    <!-- HIPERTENSÃO -->
+    <div class="mode-grid">
+      <div class="mode-card">
+        <h3>
+          Avaliação Básica 
+        </h3>
+        <p>
+          Questionário rápido com foco em sintomas, rotina e fatores de risco mais comuns.
+        </p>
+        <ul class="mode-list">
+          <li>✓ Perguntas simples e rápidas</li>
+          <li>✓ Indicação preliminar de risco</li>
+          <li>✓ Recomendação de cuidados iniciais</li>
+        </ul>
+        <button class="mode-btn" id="btnOpenAssessment">
+          Iniciar Avaliação Básica
+        </button>
+      </div>
 
-    <div class="assessment-card">
-      <div class="assessment-icon diabetes-icon">
-  <img src="https://cdn-icons-png.flaticon.com/512/4968/4968550.png" alt="Hipertensão">
-</div>
-      <h3>
-        Hipertensão
-      </h3>
-      <p>
-        Rastreamento de alterações relacionadas à pressão arterial e saúde cardiovascular.
-      </p>
-      <ul class="assessment-list">
-        <li>✓ Pressão arterial</li>
-        <li>✓ Sintomas cardiovasculares</li>
-        <li>✓ Hábitos de vida</li>
-      </ul>
-      <button class="assessment-btn" id="btnStartHypertension">
-        Iniciar Avaliação
-      </button>
+      <div class="mode-card professional">
+        <h3>
+          Avaliação Profissional 
+        </h3>
+        <p>
+          Área voltada para análises clínicas com parâmetros laboratoriais e cardiovasculares.
+        </p>
+        <ul class="mode-list">
+          <li>✓ Interpretação de exames bioquímicos</li>
+          <li>✓ Cálculos metabólicos automáticos</li>
+          <li>✓ Relatório clínico mais detalhado</li>
+        </ul>
+        <button class="mode-btn" id="btnOpenProfessional">
+          Acessar Avaliação Profissional
+        </button>
+      </div>
     </div>
+  </section>
 
-    <!-- COLESTEROL -->
-
-    <div class="assessment-card">
-      <div class="assessment-icon diabetes-icon">
-  <img src="https://cdn-icons-png.flaticon.com/512/6124/6124091.png" alt="Diabetes">
-</div>
-      <h3>
-        Colesterol
-      </h3>
-      <p>
-        Avaliação preventiva voltada ao perfil lipídico e possíveis riscos ateroscleróticos.
+  <section class="assessment-screen" id="assessmentScreen" style="display:none;">
+    <button class="back-btn" id="btnBackModesFromAssessment">
+      ← Voltar
+    </button>
+    <div class="assessment-header">
+      <div class="mini-badge">
+        Triagem de Saúde
+      </div>
+      <h2>
+        Qual avaliação deseja realizar?
+      </h2>
+      <p class="assessment-subtitle">
+        Escolha uma das áreas abaixo para iniciar o rastreamento preventivo.
       </p>
-      <ul class="assessment-list">
-        <li>✓ Perfil lipídico</li>
-        <li>✓ Gordura circulante</li>
-        <li>✓ Risco cardiovascular</li>
-      </ul>
-      <button class="assessment-btn" id="btnStartCholesterol">
-        Iniciar Avaliação
-      </button>
     </div>
-  </div>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="assessment-icon diabetes-icon">
+          <img src="https://cdn-icons-png.freepik.com/512/5935/5935562.png" alt="Diabetes">
+        </div>
+        <h3>
+          Diabetes
+        </h3>
+        <p>
+          Verificação de sintomas relacionados ao controle da glicose e riscos metabólicos.
+        </p>
+        <ul class="assessment-list">
+          <li>✓ Sede excessiva</li>
+          <li>✓ Alterações glicêmicas</li>
+          <li>✓ Histórico familiar</li>
+        </ul>
+        <button class="assessment-btn" id="btnStartDiabetes">
+          Iniciar Avaliação
+        </button>
+      </div>
 
- </section>
+      <div class="assessment-card">
+        <div class="assessment-icon diabetes-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/4968/4968550.png" alt="Hipertensão">
+        </div>
+        <h3>
+          Hipertensão
+        </h3>
+        <p>
+          Rastreamento de alterações relacionadas à pressão arterial e saúde cardiovascular.
+        </p>
+        <ul class="assessment-list">
+          <li>✓ Pressão arterial</li>
+          <li>✓ Sintomas cardiovasculares</li>
+          <li>✓ Hábitos de vida</li>
+        </ul>
+        <button class="assessment-btn" id="btnStartHypertension">
+          Iniciar Avaliação
+        </button>
+      </div>
 
-   <section class="quiz-container" id="quizGeneric">
+      <div class="assessment-card">
+        <div class="assessment-icon diabetes-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/6124/6124091.png" alt="Diabetes">
+        </div>
+        <h3>
+          Colesterol
+        </h3>
+        <p>
+          Avaliação preventiva voltada ao perfil lipídico e possíveis riscos ateroscleróticos.
+        </p>
+        <ul class="assessment-list">
+          <li>✓ Perfil lipídico</li>
+          <li>✓ Gordura circulante</li>
+          <li>✓ Risco cardiovascular</li>
+        </ul>
+        <button class="assessment-btn" id="btnStartCholesterol">
+          Iniciar Avaliação
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz-container" id="quizGeneric">
     <div class="progress-bar"><div class="progress-fill" id="quizProgress"></div></div>
     <div class="question-box">
       <div class="mini-badge" id="quizStepInfo">---</div>
+      
+      <img id="quizImage" src="" alt="Ilustração do Sintoma" style="width: 100%; max-height: 240px; object-fit: cover; border-radius: 14px; margin: 18px 0; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); display: none;">
+      
       <h2 id="questionText">---</h2>
       <div class="options-list" id="optionsList"></div>
     </div>
-   </section>
+  </section>
 
-   <section class="result-box" id="resultGeneric">
+  <section class="result-box" id="resultGeneric">
     <div class="mini-badge">Resultado Preliminar</div>
     <h2 id="resultStatus">---</h2>
     <p id="resultDescription" style="margin: 25px 0; font-size: 1.1rem; opacity: 0.9;"></p>
     <div id="professionalExtraContent" style="width: 100%;"></div> 
-    <button class="primary-btn" onclick="location.reload()">Finalizar e Sair</button>
-   </section>
+    <button class="primary-btn" onclick="window.location.reload()">Finalizar e Sair</button>
+  </section>
 
-<!-- ÁREA DE SEELEÇÃO DO MODO PROFISSIONAL -->
-
-   <section class="professional-screen" id="professionalScreen" style="display: none;">
-  <button class="back-btn" id="btnBackModesFromProfessional">← Voltar Página</button>
-  <div class="professional-header"><h2>Avaliação Clínica Avançada</h2></div>
-  <div class="professional-form">
-    
-    <div class="form-block">
-      <div class="block-title">
-        <h3>Bloco A</h3>
-        <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
-         Antropometria e Hemodinâmica
-      </h4>
-      </div>
-      <div class="input-grid">
-        <div class="input-group"><label>PA Sistólica (mmHg)</label><input type="number" id="prof_pas" placeholder="Ex: 140"></div>
-        <div class="input-group"><label>PA Diastólica (mmHg)</label><input type="number" id="prof_pad" placeholder="Ex: 90"></div>
-        <div class="input-group"><label>FC (bpm)</label><input type="number" id="prof_fc" placeholder="Ex: 75"></div>
-        <div class="input-group"><label>Circ. Abdominal (cm)</label><input type="number" id="prof_circ" placeholder="Ex: 98"></div>
-        <div class="input-group"><label>Peso (kg)</label><input type="number" id="prof_peso" placeholder="Ex: 85"></div>
-        <div class="input-group"><label>Altura</label><input type="text" id="prof_altura" placeholder="Ex: 1,75 ou 175cm"></div>
-      </div>
-    </div>
-    
-    <div class="form-block">
-      <div class="block-title">
-        <h3>Bloco B</h3>
-        <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
-         Perfil Glicêmico e Lipídico
-      </h4>
-      </div>
-      <div class="input-grid">
-        <div class="input-group">
-          <label>Tipo Glicemia</label>
-          <select id="prof_glic_tipo">
-            <option value="jejum">Jejum</option>
-            <option value="pos_prandial">Sem Jejum</option>
-          </select>
+  <section class="professional-screen" id="professionalScreen" style="display: none;">
+    <button class="back-btn" id="btnBackModesFromProfessional">← Voltar Página</button>
+    <div class="professional-header"><h2>Avaliação Clinical Avançada</h2></div>
+    <div class="professional-form">
+      
+      <div class="form-block">
+        <div class="block-title">
+          <h3>Bloco A</h3>
+          <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
+            Antropometria e Hemodinâmica
+          </h4>
         </div>
-        <div class="input-group">
-          <label>Glicemia (mg/dL)</label>
-          <input type="number" id="prof_glic" placeholder="Ex: 95">
+        <div class="input-grid">
+          <div class="input-group"><label>PA Sistólica (mmHg)</label><input type="number" id="prof_pas" placeholder="Ex: 140"></div>
+          <div class="input-group"><label>PA Diastólica (mmHg)</label><input type="number" id="prof_pad" placeholder="Ex: 90"></div>
+          <div class="input-group"><label>FC (bpm)</label><input type="number" id="prof_fc" placeholder="Ex: 75"></div>
+          <div class="input-group"><label>Circ. Abdominal (cm)</label><input type="number" id="prof_circ" placeholder="Ex: 98"></div>
+          <div class="input-group"><label>Peso (kg)</label><input type="number" id="prof_peso" placeholder="Ex: 85"></div>
+          <div class="input-group"><label>Altura</label><input type="text" id="prof_altura" placeholder="Ex: 1,75 ou 175cm"></div>
         </div>
-        <div class="input-group">
-          <label>Colesterol Total (mg/dL)</label>
-          <input type="number" id="prof_colt" placeholder="Ex: 180">
-        </div>
-        <div class="input-group">
-          <label>HDL (mg/dL)</label>
-          <input type="number" id="prof_hdl" placeholder="Ex: 50">
-        </div>
-        <div class="input-group">
-          <label>Tipo Triglicerídeos</label>
-          <select id="prof_trig_tipo">
-            <option value="jejum">Jejum</option>
-            <option value="sem_jejum">Sem Jejum</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label>Triglicerídeos (mg/dL)</label>
-          <input type="number" id="prof_trig" placeholder="Ex: 140">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-block">
-      <div class="block-title">
-        <h3>Bloco C</h3>
-        <span>Laboratório Avançado</span>
       </div>
       
-      <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
-        3. Função Renal
-      </h4>
-      <div class="input-grid" style="margin-bottom: 15px;">
-        <div class="input-group">
-          <label>Ureia (mg/dL)</label>
-          <input type="number" id="prof_ureia" placeholder="Ex: 35" step="0.1">
+      <div class="form-block">
+        <div class="block-title">
+          <h3>Bloco B</h3>
+          <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
+            Perfil Glicêmico e Lipídico
+          </h4>
         </div>
-        <div class="input-group">
-          <label>Creatinina (mg/dL)</label>
-          <input type="number" id="prof_creatinina" placeholder="Ex: 0.9" step="0.01">
+        <div class="input-grid">
+          
+          <div class="input-group">
+            <label>Tipo Glicemia</label>
+            <div class="glass-selector-container">
+              
+              <input type="radio" id="glicJejum" name="tipoGlicemiaRadio" value="jejum" checked class="glass-radio">
+              <label for="glicJejum" class="glass-label-btn">Jejum</label>
+
+              <input type="radio" id="glicSemJejum" name="tipoGlicemiaRadio" value="pos_prandial" class="glass-radio">
+              <label for="glicSemJejum" class="glass-label-btn">Sem Jejum</label>
+
+            </div>
+            
+            <select id="prof_glic_tipo" style="display: none !important;">
+              <option value="jejum" id="opt_legacy_jejum" selected>Jejum</option>
+              <option value="pos_prandial" id="opt_legacy_pos">Sem Jejum</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label>Glicemia (mg/dL)</label>
+            <input type="number" id="prof_glic" placeholder="Ex: 95">
+          </div>
+          <div class="input-group">
+            <label>Colesterol Total (mg/dL)</label>
+            <input type="number" id="prof_colt" placeholder="Ex: 180">
+          </div>
+          <div class="input-group">
+            <label>HDL (mg/dL)</label>
+            <input type="number" id="prof_hdl" placeholder="Ex: 50">
+          </div>
+          
+          <div class="input-group">
+            <label>Tipo Triglicerídeos</label>
+            <div class="glass-selector-container">
+              
+              <input type="radio" id="trigJejum" name="tipoTriglicerideosRadio" value="jejum" checked class="glass-radio">
+              <label for="trigJejum" class="glass-label-btn">Jejum</label>
+
+              <input type="radio" id="trigSemJejum" name="tipoTriglicerideosRadio" value="sem_jejum" class="glass-radio">
+              <label for="trigSemJejum" class="glass-label-btn">Sem Jejum</label>
+
+            </div>
+
+            <select id="prof_trig_tipo" style="display: none !important;">
+              <option value="jejum" selected>Jejum</option>
+              <option value="sem_jejum">Sem Jejum</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label>Triglicerídeos (mg/dL)</label>
+            <input type="number" id="prof_trig" placeholder="Ex: 140">
+          </div>
         </div>
       </div>
 
-      <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
-        2. Função Hepática
-      </h4>
-      <div class="hepática-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px;">
-  
-  <div class="input-group" style="width: 100%;">
-    <label>TGO / AST (U/L)</label>
-    <input type="number" id="prof_tgo" placeholder="Ex: 25" step="0.1" style="width: 100%;">
-  </div>
-  
-  <div class="input-group" style="width: 100%;">
-    <label>TGP / ALT (U/L)</label>
-    <input type="number" id="prof_tgp" placeholder="Ex: 30" step="0.1" style="width: 100%;">
-  </div>
-  
-  <div class="input-group" style="width: 100%;">
-    <label>Gama-GT (U/L)</label>
-    <input type="number" id="prof_gamagt" placeholder="Ex: 28" step="0.1" style="width: 100%;">
-  </div>
-  
-  <div class="input-group" style="width: 100%;">
-    <label>Fosf. Alcalina (U/L)</label>
-    <input type="number" id="prof_fosfatase" placeholder="Ex: 65" step="0.1" style="width: 100%;">
-  </div>
-  
-  <div class="input-group" style="width: 100%;">
-    <label>Bilirrubina Direta (mg/dL)</label>
-    <input type="number" id="prof_bili_direta" placeholder="Ex: 0.2" step="0.01" style="width: 100%;">
-  </div>
-  
-  <div class="input-group" style="width: 100%;">
-    <label>Bilirrubina Total (mg/dL)</label>
-    <input type="number" id="prof_bili_total" placeholder="Ex: 0.8" step="0.01" style="width: 100%;">
-  </div>
+      <div class="form-block">
+        <div class="block-title">
+          <h3>Bloco C</h3>
+          <span>Laboratório Avançado</span>
+          <select id="prof_genero">
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+          </select>
+        </div>
+        
+        <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
+          1. Função Renal
+        </h4>
+        <div class="input-grid" style="margin-bottom: 15px;">
+          <div class="input-group">
+            <label>Ureia (mg/dL)</label>
+            <input type="number" id="prof_ureia" placeholder="Ex: 35" step="0.1">
+          </div>
+          <div class="input-group">
+            <label>Creatinina (mg/dL)</label>
+            <input type="number" id="prof_creatinina" placeholder="Ex: 0.9" step="0.01">
+          </div>
+        </div>
 
-</div>
+        <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
+          2. Função Hepática
+        </h4>
+        <div class="hepática-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px;">
+          <div class="input-group" style="width: 100%;">
+            <label>TGO / AST (U/L)</label>
+            <input type="number" id="prof_tgo" placeholder="Ex: 25" step="0.1" style="width: 100%;">
+          </div>
+          <div class="input-group" style="width: 100%;">
+            <label>TGP / ALT (U/L)</label>
+            <input type="number" id="prof_tgp" placeholder="Ex: 30" step="0.1" style="width: 100%;">
+          </div>
+          <div class="input-group" style="width: 100%;">
+            <label>Gama-GT (U/L)</label>
+            <input type="number" id="prof_gamagt" placeholder="Ex: 28" step="0.1" style="width: 100%;">
+          </div>
+          <div class="input-group" style="width: 100%;">
+            <label>Fosf. Alcalina (U/L)</label>
+            <input type="number" id="prof_fosfatase" placeholder="Ex: 65" step="0.1" style="width: 100%;">
+          </div>
+          <div class="input-group" style="width: 100%;">
+            <label>Bilirrubina Direta (mg/dL)</label>
+            <input type="number" id="prof_bili_direta" placeholder="Ex: 0.2" step="0.01" style="width: 100%;">
+          </div>
+          <div class="input-group" style="width: 100%;">
+            <label>Bilirrubina Total (mg/dL)</label>
+            <input type="number" id="prof_bili_total" placeholder="Ex: 0.8" step="0.01" style="width: 100%;">
+          </div>
+        </div>
 
-      <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
-        3. Equilíbrio Eletrolítico
-      </h4>
-      <div class="input-grid">
-        <div class="input-group">
-          <label>Sódio (mEq/L)</label>
-          <input type="number" id="prof_sodio" placeholder="Ex: 140" step="0.1">
-        </div>
-        <div class="input-group">
-          <label>Potássio (mEq/L)</label>
-          <input type="number" id="prof_potassio" placeholder="Ex: 4.2" step="0.1">
-        </div>
-        <div class="input-group">
-          <label>Cloro (mEq/L)</label>
-          <input type="number" id="prof_cloro" placeholder="Ex: 102" step="0.1">
-        </div>
-        <div class="input-group">
-          <label>Bicarbonato (mEq/L)</label>
-          <input type="number" id="prof_bicarbonato" placeholder="Ex: 24" step="0.1">
+        <h4 style="color: var(--accent-color, #00ff7f); font-size: 0.95rem; margin: 15px 0 5px 0; padding-left: 5px; text-transform: uppercase; letter-spacing: 0.5px;">
+          3. Equilíbrio Eletrolítico
+        </h4>
+        <div class="input-grid">
+          <div class="input-group">
+            <label>Sódio (mEq/L)</label>
+            <input type="number" id="prof_sodio" placeholder="Ex: 140" step="0.1">
+          </div>
+          <div class="input-group">
+            <label>Potássio (mEq/L)</label>
+            <input type="number" id="prof_potassio" placeholder="Ex: 4.2" step="0.1">
+          </div>
+          <div class="input-group">
+            <label>Cloro (mEq/L)</label>
+            <input type="number" id="prof_cloro" placeholder="Ex: 102" step="0.1">
+          </div>
+          <div class="input-group">
+            <label>Bicarbonato (mEq/L)</label>
+            <input type="number" id="prof_bicarbonato" placeholder="Ex: 24" step="0.1">
+          </div>
         </div>
       </div>
+
+      <button class="generate-btn" id="btnCalculateProfessional">Gerar Avaliação Clínica</button>
     </div>
+  </section>
+  
+  <script>
+    document.addEventListener('change', function(e) {
+      if(e.target && e.target.name === 'tipoGlicemiaRadio') {
+        var legacyGlic = document.getElementById('prof_glic_tipo');
+        if(legacyGlic) {
+          legacyGlic.value = e.target.value;
+          legacyGlic.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+      if(e.target && e.target.name === 'tipoTriglicerideosRadio') {
+        var legacyTrig = document.getElementById('prof_trig_tipo');
+        if(legacyTrig) {
+          legacyTrig.value = e.target.value;
+          legacyTrig.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+    });
+  </script>
 
-    <button class="generate-btn" id="btnCalculateProfessional">Gerar Avaliação Clínica</button>
-  </div>
-</section>
-  <script src="index.js"></script>
-  <script src="indexe.js"></script>
+  <script src="a_navegacao.js"></script>
+  <script src="a-profissional.js"></script>
+  <script src="a-basico.js"></script>
 </body>
 </html>
