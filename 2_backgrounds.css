@@ -1,0 +1,101 @@
+/* =====================================================
+   ELEMENTOS VISUAIS DE DETALHE - VIDRO LÍQUIDO CROMÁTICO
+===================================================== */
+:root {
+  /* Injetores Cromáticos para o Modo Escuro */
+  --bg1-fluid-1: #0284c7;
+  --bg1-fluid-2: #2e1065; /* Sombra roxa profunda para fusão */
+  --bg2-fluid-1: #0369a1;
+  --bg2-fluid-2: #064e3b; /* Sombra verde esmeralda profunda */
+}
+
+:root.light-mode {
+  /* Injetores Cromáticos para o Modo Claro */
+  --bg1-fluid-1: #00b4d8;
+  --bg1-fluid-2: #7209b7;
+  --bg2-fluid-1: #4cc9f0;
+  --bg2-fluid-2: #40916c;
+}
+
+.bg-blur {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px) saturate(160%); /* Desfoque líquido otimizado Apple Style */
+  z-index: -2;
+  pointer-events: none;
+  will-change: transform, border-radius, filter; /* Fluidez máxima a 60fps+ trocando de cor */
+}
+
+.bg1 {
+  width: 750px !important;
+  height: 750px !important;
+  /* Transição dinâmica fundindo a base azul com espectros roxos em movimento */
+  background: radial-gradient(circle at 30% 30%, var(--bg1-fluid-1), var(--bg1-fluid-2) 85%) !important;
+  opacity: 0.28 !important; 
+  animation: liquidBlueDrop 24s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate !important;
+}
+
+.bg2 {
+  width: 850px !important;
+  height: 850px !important;
+  /* Transição dinâmica fundindo a base azul com espectros verdes em movimento */
+  background: radial-gradient(circle at 70% 70%, var(--bg2-fluid-1), var(--bg2-fluid-2) 80%) !important;
+  opacity: 0.22 !important; 
+  /* Movimento cruzado dessincronizado criando a aurora de cores no vidro */
+  animation: liquidBlueDrop 32s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate-reverse !important;
+}
+
+:root.light-mode .bg1, 
+:root.light-mode .bg2 {
+  opacity: 0.45 !important; /* Maximiza o brilho das cores sob o vidro diurno */
+}
+
+@keyframes liquidBlueDrop {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    /* Inicia com o balanço de azul nativo */
+    filter: blur(110px) brightness(0.95) contrast(1) hue-rotate(0deg);
+  }
+  25% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    transform: translate(140px, -100px) rotate(90deg) scale(1.15);
+    /* Desloca levemente para tons ciano/esmeralda brilhantes */
+    filter: blur(125px) brightness(1.15) contrast(1.05) hue-rotate(40deg); 
+  }
+  50% {
+    border-radius: 30% 70% 40% 60% / 50% 65% 35% 50%;
+    transform: translate(-100px, 140px) rotate(180deg) scale(0.85);
+    /* Mergulha em nuances roxas e violetas intensas */
+    filter: blur(100px) brightness(0.8) contrast(0.95) hue-rotate(120deg); 
+  }
+  75% {
+    border-radius: 55% 45% 65% 35% / 40% 55% 45% 60%;
+    transform: translate(100px, 90px) rotate(270deg) scale(1.25);
+    /* Retorna cruzando tonalidades azul-elétrico e turquesa iluminado */
+    filter: blur(135px) brightness(1.1) contrast(1.02) hue-rotate(200deg); 
+  }
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(0, 0) rotate(360deg) scale(1);
+    filter: blur(110px) brightness(0.95) contrast(1) hue-rotate(360deg);
+  }
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  /* Grid digital dinâmico integrado perfeitamente à refração cromática */
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -3;
+  mix-blend-mode: overlay; /* Faz a malha absorver a cor da luz que estiver passando por baixo dela */
+  animation: gridBreathe 16s ease-in-out infinite alternate;
+}
+
+@keyframes gridBreathe {
+  0% { opacity: 0.18; }
+  100% { opacity: 0.45; background-size: 54px 54px; }
+}
