@@ -1,0 +1,344 @@
+/* =====================================================
+   ANIMAÇÕES ULTRA INTERATIVAS (FLUÍDAS)
+===================================================== */
+@keyframes entradaSuave {
+  from { opacity: 0; transform: translateY(-14px) scale(0.99); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes pulsoBrilho {
+  0%, 100% { box-shadow: 0 0 23px rgba(0, 255, 170, 0.12), inset 0 0 0px rgba(255,255,255,0); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 170, 0.29), inset 0 0 9px rgba(0, 255, 170, 0.1); }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.main-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 52px;
+  position: relative;
+  z-index: 10;
+  border-radius: 28px; 
+  background: linear-gradient(135deg, rgba(15, 15, 20, 0.75), rgba(10, 10, 12, 0.45));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: entradaSuave 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* =====================================================
+   MÓDULO DA LOGO (ALINHAMENTO HORIZONTAL & MAIOR)
+===================================================== */
+.logo-area {
+  display: flex;
+  align-items: center; /* Garante que a logo gigante fique perfeitamente centralizada verticalmente com o bloco de texto */
+  gap: 20px; 
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.logo-area:hover { 
+  transform: scale(1.02); 
+}
+
+/* Moldura Externa Ampliada com Segurança (74px para abraçar as 3 linhas de texto) */
+.logo-mark {
+  width: 74px;
+  height: 74px;
+  min-width: 74px;
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; 
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(37, 99, 235, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: pulsoBrilho 4s infinite ease-in-out;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* Quadrado Interno Proporcional */
+.logo-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #0284c7, #1d4ed8);
+  box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.25);
+  position: relative; 
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* Cruz Vetorial Reajustada para o Novo Tamanho */
+.logo-icon::before,
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #38bdf8; 
+  border-radius: 2.5px;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.8));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.logo-icon::before { width: 22px; height: 5px; } 
+.logo-icon::after { width: 5px; height: 22px; }
+
+/* Interações Hover da Logo */
+.logo-area:hover .logo-mark {
+  transform: rotate(5deg) scale(1.03);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 32px rgba(14, 165, 233, 0.25);
+}
+
+.logo-area:hover .logo-icon::before,
+.logo-area:hover .logo-icon::after {
+  background-color: #ffffff; 
+  filter: drop-shadow(0 0 10px #38bdf8);
+}
+
+/* Nova Arquitetura de Texto (Empilhamento Vertical ao lado da Logo) */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left; /* Garante alinhamento à esquerda no desktop */
+}
+
+/* Linha 1: healUp */
+.logo-text h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.65rem; 
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: #ffffff;
+  line-height: 1.1;
+  transition: color 0.2s ease;
+}
+
+.logo-area:hover .logo-text h2 { 
+  color: #38bdf8; 
+}
+
+/* Linha 2: Monitoramento Preventivo */
+.logo-text .subtitle-1 {
+  margin: 2px 0 0 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem; 
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.2;
+}
+
+/* Linha 3: Saúde, Vida e Prevenção */
+.logo-text .subtitle-2 {
+  margin: 3px 0 0 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem; 
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(14, 165, 233, 0.6);
+  line-height: 1.1;
+}
+
+/* =====================================================
+   BOTÕES DE NAVEGAÇÃO
+===================================================== */
+.header-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.header-nav .nav-btn {
+  padding: 15px 32px;
+  border-radius: 35px; 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(245, 245, 245, 0.85);
+  font-size: 1.01rem; 
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-nav .nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.15), transparent);
+  transition: 0.6s ease;
+}
+
+.header-nav .nav-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #fff;
+}
+
+.header-nav .nav-btn:hover::before { left: 100%; }
+
+/* =====================================================
+   OTIMIZAÇÃO RESPONSIVA SIMÉTRICA (MOBILE)
+===================================================== */
+@media (max-width: 768px) {
+  header {
+    margin-bottom: 30px;
+  }
+
+  .main-header {
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;       
+    gap: 26px;                 
+    padding: 32px 24px;
+  }
+
+  /* Mantém lado a lado e centraliza o bloco inteiro no celular */
+  .logo-area {
+    flex-direction: row; /* Força o ícone a ficar SEMPRE ao lado do texto */
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* Redução milimétrica e harmônica para telas menores sem distorcer */
+  .logo-mark {
+    width: 62px !important;
+    height: 62px !important;
+    min-width: 62px !important;
+    min-height: 62px !important;
+    border-radius: 16px;
+  }
+
+  .logo-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border-radius: 12px;
+  }
+
+  .logo-icon::before { width: 18px; height: 4px; }
+  .logo-icon::after { width: 4px; height: 18px; }
+
+  .logo-text {
+    text-align: left; /* Mantém o bloco de texto alinhado bonitinho à esquerda */
+  }
+
+  .logo-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .logo-text .subtitle-1 {
+    font-size: 0.68rem;
+    letter-spacing: 0.8px;
+  }
+
+  .logo-text .subtitle-2 {
+    font-size: 0.58rem;
+    letter-spacing: 1.2px;
+  }
+
+  .header-nav {
+    width: 100%;
+    justify-content: center;   
+    gap: 12px;
+  }
+
+  .header-nav .nav-btn {
+    padding: 12px 24px;
+    font-size: 0.94rem;
+  }
+}
+
+/* Trava antiesmagamento */
+.logo-mark, .logo-icon {
+  flex-shrink: 0 !important;
+}
+
+/* =====================================================
+   ENGENHARIA DO BOTÃO DO SOL (THEME TOGGLE)
+===================================================== */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(245, 245, 245, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  margin-left: 10px; /* Separação sutil do botão anterior */
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  transform: scale(1.05) rotate(15deg);
+}
+
+/* Tamanho do ícone SVG interno do Sol */
+.theme-toggle-btn .theme-icon,
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =====================================================
+   MUTAÇÃO DO BOTÃO NO MODO CLARO (INVERSÃO DO BOTÃO)
+===================================================== */
+:root.light-mode .theme-toggle-btn {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.2);
+  color: #0284c7; /* Cor do Sol vira o Azul Cobalto para destacar no fundo claro */
+}
+
+:root.light-mode .theme-toggle-btn:hover {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(14, 165, 233, 0.4);
+  transform: scale(1.05) rotate(195deg); /* Giro estético avançado ao passar o mouse */
+}
